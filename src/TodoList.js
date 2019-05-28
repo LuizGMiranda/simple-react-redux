@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as TodosActions from "./store/actions/todos";
 
-const TodoList = ({ todos, addTodo, removeTodo }) => (
+const TodoList = ({ todos, removeTodo }) => (
   <Fragment>
     <ul>
       {todos.map(todo => (
@@ -14,7 +14,6 @@ const TodoList = ({ todos, addTodo, removeTodo }) => (
         </li>
       ))}
     </ul>
-    <button onClick={() => addTodo("Test")}>AddTodo</button>
   </Fragment>
 );
 
