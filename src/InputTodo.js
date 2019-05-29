@@ -1,9 +1,27 @@
 import React, { Fragment } from "react";
 
-const InputTodo = () => (
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as InputActions from "./store/actions/input";
+
+const InputTodo = ({ text, writeInput }) => (
   <Fragment>
-    <input type="text" />
+    <input
+      type="text"
+      value={text}
+      onChange={e => writeInput(e.target.value)}
+    />
   </Fragment>
 );
 
-export default InputTodo;
+const mapStateToProps = state => ({
+  text: state.input.text
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(InputActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InputTodo);

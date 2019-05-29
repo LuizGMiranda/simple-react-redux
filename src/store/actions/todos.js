@@ -7,8 +7,3 @@ export const removeTodo = id => ({
   type: "REMOVE_TODO",
   payload: { id }
 });
-
-export const inputTodo = text => ({
-  type: "INPUT_TODO",
-  payload: { text }
-});
